@@ -25,8 +25,18 @@ const Dashboard = () => {
               <p className="text-lg text-gray-600 dark:text-gray-400 mb-8">I am a passionate MERN stack developer with {totalExperience} years of experience in web development. My expertise lies in building dynamic and responsive web applications using the latest technologies.</p>
             </div>
 
-            <div className="rounded-full p-[6px] bg-gradient-to-r from-pink-500 via-purple-500 to-cyan-500 transition-all duration-300 hover:scale-105 hover:shadow-[0_0_30px_rgba(168,85,247,0.5)] cursor-pointer">
-              <Image src={profilePic} alt='profilePic' className='w-64 h-64 sm:w-72 sm:h-72 md:w-80 md:h-80 lg:w-[350px] lg:h-[350px] object-cover object-top rounded-full bg-white' />
+            <div className="relative rounded-full p-[6px] bg-gradient-to-r from-pink-500 via-purple-500 to-cyan-500 transition-all duration-300 hover:scale-105 hover:shadow-[0_0_30px_rgba(168,85,247,0.5)] cursor-pointer w-64 h-64 sm:w-72 sm:h-72 md:w-80 md:h-80 lg:w-[350px] lg:h-[350px]">
+              <div className="relative w-full h-full rounded-full overflow-hidden bg-white">
+                <Image 
+                  src={profilePic} 
+                  alt='Profile Picture' 
+                  fill 
+                  className='object-cover object-top' 
+                  quality={100} 
+                  priority 
+                  sizes="(max-width: 640px) 256px, (max-width: 768px) 288px, (max-width: 1024px) 320px, 350px"
+                />
+              </div>
             </div>
           </div>
         </div>
