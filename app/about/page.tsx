@@ -2,7 +2,7 @@ import About from "@/components/sections/About";
 
 export default function AboutPage() {
   return (
-    <main className="flex min-h-screen justify-between">
+    <main className="flex min-h-screen flex-col">
       <About />
     </main>
   );
