@@ -2,8 +2,11 @@ import Image from 'next/image';
 import profilePic from '@/public/images/img.jpg';
 import TechStack from './TechStack';
 import Projects from './Projects';
+import { getTotalExperienceYears } from '../utils/common';
 
 const Dashboard = () => {
+  const totalExperience = getTotalExperienceYears();
+
   return (
     <div className="w-full">
       <section className="w-full py-20" id="home">
@@ -19,7 +22,7 @@ const Dashboard = () => {
                 <br />
                 I build things for web
               </h2>
-              <p className="text-lg text-gray-600 dark:text-gray-400 mb-8">I am a passionate MERN stack developer with 3+ years of experience in web development. My expertise lies in building dynamic and responsive web applications using the latest technologies.</p>
+              <p className="text-lg text-gray-600 dark:text-gray-400 mb-8">I am a passionate MERN stack developer with {totalExperience} years of experience in web development. My expertise lies in building dynamic and responsive web applications using the latest technologies.</p>
             </div>
 
             <div className="rounded-full p-[6px] bg-gradient-to-r from-pink-500 via-purple-500 to-cyan-500 transition-all duration-300 hover:scale-105 hover:shadow-[0_0_30px_rgba(168,85,247,0.5)] cursor-pointer">

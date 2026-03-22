@@ -92,3 +92,36 @@ export const projects = [
     },
 
   ];
+
+export const getTotalExperienceYears = () => {
+  let totalMonths = 0;
+  experiences.forEach(exp => {
+    // Exclude internship experience from the total years calculation
+    if (exp.title.toLowerCase().includes('intern')) return;
+
+    if (!exp.date || !exp.date.includes('-')) return;
+    const [startStr, endStr] = exp.date.split('-').map(s => s.trim());
+    
+    const parseDate = (str: string) => {
+      if (str.toLowerCase() === 'present') return new Date();
+      const cleanedStr = str.replace(/sept/i, 'Sep');
+      const d = new Date(cleanedStr);
+      if (isNaN(d.getTime())) return null;
+      return d;
+    };
+
+    const startDate = parseDate(startStr);
+    const endDate = parseDate(endStr);
+    
+    if (!startDate || !endDate) return;
+
+    let months = (endDate.getFullYear() - startDate.getFullYear()) * 12;
+    months -= startDate.getMonth();
+    months += endDate.getMonth();
+    months += 1; // Inclusive of end month
+
+    if (months > 0) totalMonths += months;
+  });
+
+  return (totalMonths / 12).toFixed(1);
+};

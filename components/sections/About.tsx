@@ -1,5 +1,5 @@
 import { FaBuilding, FaCalendarAlt, FaMapMarkerAlt } from 'react-icons/fa';
-import { education, experiences } from '../utils/common';
+import { education, experiences, getTotalExperienceYears } from '../utils/common';
 
 const calculateDuration = (dateStr: string) => {
   if (!dateStr || !dateStr.includes('-')) return '';
@@ -65,38 +65,6 @@ const ExperienceCard = ({ title, company, location, type, date, description, sho
     )}
   </div>
   );
-};
-
-const getTotalExperienceYears = () => {
-  let totalMonths = 0;
-  experiences.forEach(exp => {
-    if (exp.title.toLowerCase().includes('intern')) return;
-
-    if (!exp.date || !exp.date.includes('-')) return;
-    const [startStr, endStr] = exp.date.split('-').map(s => s.trim());
-    
-    const parseDate = (str: string) => {
-      if (str.toLowerCase() === 'present') return new Date();
-      const cleanedStr = str.replace(/sept/i, 'Sep');
-      const d = new Date(cleanedStr);
-      if (isNaN(d.getTime())) return null;
-      return d;
-    };
-
-    const startDate = parseDate(startStr);
-    const endDate = parseDate(endStr);
-    
-    if (!startDate || !endDate) return;
-
-    let months = (endDate.getFullYear() - startDate.getFullYear()) * 12;
-    months -= startDate.getMonth();
-    months += endDate.getMonth();
-    months += 1; // Inclusive of end month
-
-    if (months > 0) totalMonths += months;
-  });
-
-  return (totalMonths / 12).toFixed(1);
 };
 
 const About = () => {
