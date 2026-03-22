@@ -11,7 +11,7 @@ const ProjectCard = ({ id, title, description, techStack, liveLink, image }: { i
     <div className="h-48 bg-gray-200 dark:bg-gray-700 relative">
       {image ? (
          <Image src={image} alt={title} className="w-full h-full object-cover" />
-      ) : (
+      ) : ( 
         <div className="absolute inset-0 bg-gradient-to-br from-purple-600 to-blue-500"></div>
       )}
     </div>
