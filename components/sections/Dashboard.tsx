@@ -3,8 +3,6 @@ import profilePic from '@/public/images/img.jpg';
 import TechStack from './TechStack';
 import Projects from './Projects';
 import { getTotalExperienceYears } from '../utils/common';
-import { FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa';
-import Link from 'next/link';
 
 const Dashboard = () => {
   const totalExperience = getTotalExperienceYears();
@@ -36,18 +34,6 @@ const Dashboard = () => {
                 <a href="/images/resume.pdf" download="Mitesh_Kumar_Resume.pdf" className="px-8 py-3.5 rounded-full bg-transparent text-gray-800 dark:text-white font-semibold border-2 border-gray-300 dark:border-gray-700 hover:border-blue-600 hover:text-blue-600 dark:hover:border-blue-400 dark:hover:text-blue-400 hover:-translate-y-1 hover:scale-105 transition-all duration-300 w-full sm:w-auto text-center">
                   Download CV
                 </a>
-              </div>
-
-              <div className="flex items-center justify-center lg:justify-start gap-6">
-                 <Link href="#" className="text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors duration-300 hover:scale-125">
-                   <FaGithub size={30} />
-                 </Link>
-                 <Link href="#" className="text-gray-500 dark:text-gray-400 hover:text-[#0077b5] dark:hover:text-[#0077b5] transition-colors duration-300 hover:scale-125">
-                   <FaLinkedin size={30} />
-                 </Link>
-                 <Link href="#" className="text-gray-500 dark:text-gray-400 hover:text-[#1DA1F2] dark:hover:text-[#1DA1F2] transition-colors duration-300 hover:scale-125">
-                   <FaTwitter size={30} />
-                 </Link>
               </div>
             </div>
 
